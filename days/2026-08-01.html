@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arun's Daily Diff | Saturday, August 1, 2026</title>
+<meta name="description" content="Daily AI developer productivity digest — curated Substack posts on coding agents, verification, and engineering practices.">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+:root{--bg-page:#e7e1d1;--bg-sheet:#f8f4e8;--bg-sheet-alt:#efe8d4;--bg-well:#fff;--ink:#1b1a17;--ink-soft:#45423a;--ink-faint:#7c7563;--ink-invert:#f8f4e8;--rule:#201e19;--rule-soft:#201e1947;--rule-hair:#201e1929;--accent:#8a1f11;--accent-soft:#8a1f1114;--accent-ink:#8a1f11;--shadow-sheet:0 1px 2px #1b1a170f,0 18px 40px -20px #1b1a1759;--shadow-btn:0 1px 0 #1b1a1759;--font-display:"Lora",Georgia,"Times New Roman",serif;--font-body:"PT Serif",Georgia,"Times New Roman",serif;--sheet-max:1180px;--sheet-pad:clamp(1rem,2.5vw,2.25rem);--bg-selection:#8a1f1129}
+[data-theme=dark]{--bg-page:#17150f;--bg-sheet:#221f19;--bg-sheet-alt:#2a2520;--bg-well:#1c1913;--ink:#d9d0bd;--ink-soft:#b0a790;--ink-faint:#7f7663;--ink-invert:#221f19;--rule:#b0a790;--rule-soft:#d9d0bd38;--rule-hair:#d9d0bd1f;--accent:#cc9a56;--accent-soft:#cc9a561f;--accent-ink:#dcae6d;--shadow-sheet:0 1px 2px #0000004d,0 18px 40px -22px #0000008c;--shadow-btn:0 1px 0 #00000073;--bg-selection:#cc9a5640}
+*,:before,:after{box-sizing:border-box}
+::selection{background-color:var(--bg-selection);color:inherit}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;max-width:100vw;overflow-x:hidden}
+body{background-color:var(--bg-page);color:var(--ink);font-family:var(--font-body);max-width:100%;margin:0;line-height:1.6;transition:background-color .25s,color .25s;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.theme-toggle-icon .sun{display:none}
+.theme-toggle-icon .moon,[data-theme=dark] .theme-toggle-icon .sun{display:inline-block}
+[data-theme=dark] .theme-toggle-icon .moon{display:none}
+.page-container{max-width:var(--sheet-max);padding:0 var(--sheet-pad) 4rem;margin:0 auto}
+.newspaper-sheet{background:var(--bg-sheet);box-shadow:var(--shadow-sheet);padding:var(--sheet-pad)}
+.masthead{text-align:center;padding-bottom:.45rem;position:relative}
+.masthead-eyebrow{letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);grid-template-columns:1fr auto 1fr;align-items:baseline;gap:.75rem;padding-bottom:.35rem;font-size:.66rem;display:grid}
+.masthead-archive-link{color:var(--ink-faint);vertical-align:-.05em;align-items:center;gap:.35rem;display:inline-flex}
+.masthead-archive-link:hover{color:var(--accent-ink)}
+.masthead-eyebrow-left{justify-content:flex-start;align-items:center;gap:.5rem;display:inline-flex}
+.masthead-eyebrow-right{text-align:right;justify-content:flex-end;align-items:center;gap:.75rem;display:inline-flex}
+.masthead-nav-btn{cursor:pointer;color:var(--ink-faint);vertical-align:middle;background:0 0;border:none;justify-content:center;align-items:center;margin:0;padding:.15rem .35rem;transition:color .15s,opacity .15s;display:inline-flex}
+.masthead-nav-btn svg{display:block}
+.masthead-nav-btn:hover:not(.is-disabled){color:var(--accent-ink)}
+.masthead-nav-btn.is-disabled{opacity:.25;cursor:not-allowed}
+.masthead-eyebrow-right #theme-toggle{width:auto;height:auto;color:var(--ink-faint);background:0 0;border:none;padding:.2rem;transition:color .15s;cursor:pointer}
+.masthead-eyebrow-right #theme-toggle:hover{color:var(--accent-ink)}
+.masthead-eyebrow-center-group{justify-content:center;align-items:center;gap:.5rem;display:inline-flex}
+.masthead-eyebrow-sep{color:var(--ink-faint)}
+.masthead-eyebrow-link{color:var(--ink-soft);text-transform:lowercase;font-style:italic;font-weight:500;transition:color .15s}
+.masthead-eyebrow-link:hover{color:var(--accent-ink);text-underline-offset:2px;text-decoration:underline}
+.masthead-eyebrow-center{text-align:center;color:var(--ink-soft);font-style:italic}
+@media (width<=480px){.masthead-eyebrow{flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 0;display:flex}.masthead-eyebrow-left{flex:1 0 auto}.masthead-eyebrow-right{flex:1 0 auto;justify-content:flex-end}.masthead-eyebrow-center-group{order:3;justify-content:center;width:100%;padding-top:.25rem;padding-bottom:.25rem;display:inline-flex}}
+.masthead-name{font-family:var(--font-display);letter-spacing:0;-webkit-text-stroke:1.2px currentColor;text-shadow:.5px 0;margin:0;font-size:clamp(2.5rem,5vw,3.85rem);font-weight:900}
+.masthead-tagline{font-family:var(--font-body);letter-spacing:.02em;color:var(--ink-faint);margin:0;font-size:.92rem;font-style:italic}
+.masthead-cat{color:var(--ink-faint);white-space:pre;margin:0;font-family:monospace;font-size:.65rem;line-height:1.1;position:absolute;top:4rem;display:none!important}
+.masthead-cat--right{right:-2em}.masthead-cat--left{left:-2em}
+.masthead-rule-thick{border:none;border-top:4px double var(--rule);margin:1.1rem 0 .32rem}
+.filter-bar{border-bottom:1px solid var(--rule-soft);flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-top:.5rem;margin-bottom:.5rem;padding:.5rem 0;display:flex}
+.filter-group{font-family:var(--font-body);align-items:center;gap:.5rem;display:flex;position:relative}
+.filter-options{align-items:center;gap:.25rem;display:flex;flex-wrap:wrap}
+.filter-label{font-family:var(--font-display);color:var(--ink-soft);margin-right:.6rem;font-size:.82rem;font-style:italic;font-weight:700}
+.filter-label:after{content:":"}
+.filter-btn{background-color:var(--bg-sheet-alt);border:1px solid var(--rule-soft);color:var(--ink-soft);font-family:var(--font-body);text-transform:uppercase;letter-spacing:.05em;cursor:pointer;border-radius:4px;padding:.25rem .75rem;font-size:.75rem;font-weight:700;transition:all .2s}
+.filter-btn:hover{color:var(--ink);background-color:var(--bg-well);border-color:var(--rule)}
+.filter-btn.active{color:var(--ink-invert);background-color:var(--accent);border-color:var(--accent)}
+.no-stories-message{text-align:center;font-family:var(--font-body);color:var(--ink-soft);border-bottom:1px solid var(--rule-hair);padding:3rem 1rem;font-style:italic;display:none}
+.no-stories-message.is-visible{display:block}
+.story.is-lead{column-span:all;border-bottom:1px solid var(--rule-soft);margin-bottom:1.5rem;padding:1.1rem 0 1rem}
+.story.is-lead .story-headline{margin:0 0 .5rem;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1}
+.story.is-lead .story-body{column-count:2;column-gap:1.75rem;font-size:.86rem}
+@media (width<=720px){.story.is-lead .story-body{column-count:1}}
+.newspaper-columns{column-count:3;column-rule:1px solid var(--rule-hair);column-gap:1.6rem}
+@media (width<=1000px){.newspaper-columns{column-count:2}}
+@media (width<=640px){.newspaper-columns{column-count:1}}
+.story{break-inside:avoid;-webkit-column-break-inside:avoid;border-bottom:1px solid var(--rule-hair);margin:0 0 1.1rem;padding-bottom:1rem}
+.story:last-child{border-bottom:none}
+.story-headline{font-family:var(--font-display);letter-spacing:.005em;margin:0 0 .4rem;font-size:1.08rem;font-weight:700;line-height:1.32}
+.story-headline a{transition:color .15s}
+.story-headline a:hover{color:var(--accent-ink)}
+.story-byline{letter-spacing:.02em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.4rem;font-size:.68rem}
+.story-source-sep{margin:0 .35em}
+.story-source-link{color:var(--accent-ink);border-bottom:1px solid #0000}
+.story-source-link:hover{border-bottom-color:var(--accent-ink)}
+.why-info{vertical-align:middle;color:var(--ink-faint);cursor:help;justify-content:center;align-items:center;margin-left:.45em;display:inline-flex;position:relative}
+.why-info-icon{display:block}
+.why-info:hover,.why-info:focus{color:var(--accent-ink);outline:none}
+.why-tooltip{background:var(--bg-well);width:240px;max-width:60vw;color:var(--ink-soft);border:1px solid var(--rule-soft);box-shadow:var(--shadow-sheet);text-transform:none;letter-spacing:normal;opacity:0;visibility:hidden;pointer-events:none;z-index:20;padding:.6rem .7rem;font-size:.72rem;font-style:italic;line-height:1.45;transition:opacity .15s,transform .15s;position:absolute;top:145%;left:0;transform:translateY(-4px)}
+.why-tooltip strong{color:var(--accent-ink);font-style:normal}
+.why-info:hover .why-tooltip,.why-info:focus .why-tooltip,.why-info:focus-within .why-tooltip{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.story-body{font-size:.8rem;line-height:1.5}
+.story-body p{margin:0 0 .6em}
+.story-body h1,.story-body h2,.story-body h3,.story-body h4{font-family:var(--font-display);margin:1em 0 .4em;font-weight:700;line-height:1.2}
+.story-body ul,.story-body ol{margin:0 0 .85em;padding-left:1.3em}
+.story-body li{margin:0 0 .35em}
+.story-body blockquote{border-left:2px solid var(--rule-soft);color:var(--ink-soft);margin:0 0 .85em;padding-left:.75em;font-style:italic}
+.story-body code{background:var(--bg-sheet-alt);padding:.05em .3em;font-family:"PT Serif",monospace;font-size:.9em}
+.story-body strong{font-weight:700}
+.story-body a{text-decoration:underline;text-decoration-color:var(--rule-soft);text-underline-offset:.15em}
+.story-body a:hover{color:var(--accent-ink)}
+.story-body>p:first-child:first-letter,.story-body.lead-no-cap>p:first-child:first-letter{font-family:var(--font-display);text-transform:uppercase;float:left;color:var(--accent-ink);padding:.03em .08em 0 0;font-size:2.6em;font-weight:800;line-height:.82}
+.story-body.lead-no-cap>p:first-child:first-letter{float:none;color:inherit;padding:0;font-size:inherit;font-weight:inherit;line-height:inherit}
+.edition-colophon{text-align:center;border-top:4px double var(--rule);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:1.5rem;padding-top:1rem;font-size:.7rem}
+.edition-colophon .colophon-row{margin-bottom:.5rem}
+.edition-colophon .colophon-row:last-child{margin-bottom:0}
+.edition-colophon a{color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--rule-soft);text-underline-offset:.15em}
+.edition-colophon a:hover{color:var(--accent-ink)}
+/* archive page */
+.archive-page{max-width:640px;padding-top:3rem;margin:0 auto}
+.archive-header{justify-content:space-between;align-items:center;display:flex}
+.archive-title-group{align-items:baseline;gap:.75rem;display:flex}
+.archive-heading{font-family:var(--font-display);margin:0;font-size:1.5rem;font-weight:700}
+.archive-count{letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);font-size:.72rem}
+.archive-latest-link{letter-spacing:.03em;text-transform:uppercase;color:var(--accent-ink);font-size:.78rem}
+.archive-rule-thin{border:none;border-top:1px solid var(--rule-soft);margin:1rem 0 .5rem}
+.archive-note{color:var(--ink-soft);margin:.5rem 0 1.25rem;font-size:.85rem;font-style:italic;line-height:1.4}
+.archive-list{flex-direction:column;display:flex}
+.archive-item{border-bottom:1px solid var(--rule-hair);align-items:baseline;gap:1rem;padding:.55rem 0;transition:padding-left .15s,background-color .15s;display:flex}
+.archive-item:hover{background:var(--accent-soft);padding-left:.4rem}
+.archive-item-num{font-family:var(--font-display);color:var(--ink-faint);min-width:1.8rem;font-size:.78rem;font-style:italic}
+.archive-item-title{font-family:var(--font-body);flex:1;font-size:.9rem;font-weight:700}
+.archive-item-meta{letter-spacing:.03em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;font-size:.7rem}
+@media (width<=600px){.page-container{padding:0 .5rem 4rem}.newspaper-sheet{padding:1.25rem .75rem}.filter-bar{justify-content:flex-start;gap:.5rem 1rem}.filter-label{margin-right:.2rem;font-size:.72rem}}
+</style>
+<script>
+(function () {
+  const savedTheme = localStorage.getItem('theme');
+  const theme = savedTheme || 'light';
+  document.documentElement.dataset.theme = theme;
+  window.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.dataset.theme || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+    }
+    // Filters
+    let srcFilter = 'all', sigFilter = 'all';
+    const stories = document.querySelectorAll('.story[data-source]');
+    const noStories = document.getElementById('no-stories-message');
+    const countEl = document.getElementById('masthead-story-count');
+    const total = stories.length;
+    function applyFilters() {
+      let shown = 0;
+      stories.forEach(s => {
+        const okSrc = srcFilter === 'all' || s.dataset.source === srcFilter;
+        const okSig = sigFilter === 'all' || parseInt(s.dataset.interest || '0') >= parseInt(sigFilter);
+        const show = okSrc && okSig;
+        s.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      if (noStories) noStories.classList.toggle('is-visible', shown === 0);
+      if (countEl) countEl.textContent = sigFilter === 'all' && srcFilter === 'all'
+        ? `${total} Stories` : `${shown} / ${total} Stories`;
+    }
+    function bind(groupId, cb) {
+      document.querySelectorAll(`#${groupId} .filter-btn`).forEach(b => {
+        b.addEventListener('click', () => {
+          document.querySelectorAll(`#${groupId} .filter-btn`).forEach(x => x.classList.remove('active'));
+          b.classList.add('active');
+          cb(b.dataset.filter);
+          applyFilters();
+        });
+      });
+    }
+    bind('source-filter-container', v => srcFilter = v);
+    bind('interest-filter-container', v => sigFilter = v);
+  });
+})();
+</script>
+</head>
+<body>
+<main class="page-container">
+<article class="newspaper-sheet">
+<header class="masthead">
+<div class="masthead-eyebrow">
+<span class="masthead-eyebrow-left"><a href="../archive.html" class="masthead-archive-link" aria-label="Back to archive">←<span>Archive</span></a><span class="masthead-eyebrow-sep">·</span><a class="masthead-eyebrow-link" href="../index.html">daily-arun</a></span>
+<div class="masthead-eyebrow-center-group"><a class="masthead-nav-btn" href="days/2026-07-31.html" aria-label="Previous edition" title="Previous edition"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></a><span class="masthead-eyebrow-center">Saturday, August 1, 2026</span><a class="masthead-nav-btn" href="days/2026-08-02.html" aria-label="Next edition" title="Next edition"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></a></div>
+<div class="masthead-eyebrow-right"><span id="masthead-story-count">11 Stories</span><button id="theme-toggle" aria-label="Toggle Day/Night Edition"><span class="theme-toggle-icon"><svg class="sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg class="moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></span></button></div>
+</div>
+<h1 class="masthead-name">Arun's Daily Diff</h1>
+<p class="masthead-tagline">Substack Posts on AI Dev Productivity Worth Your Time</p>
+<pre class="masthead-cat masthead-cat--left">
+  /\_/\
+ (=^.^=)
+ (")_(")
+</pre>
+<pre class="masthead-cat masthead-cat--right">
+  /\_/\
+ (=^.^=)
+ (")_(")
+</pre>
+<hr class="masthead-rule-thick">
+<div class="filter-bar">
+<div class="filter-group" id="source-filter-container"><span class="filter-label">Publication</span><div class="filter-options"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="importai">ImportAI</button><button class="filter-btn" data-filter="latent">Latent</button><button class="filter-btn" data-filter="out">UsefulThing</button><button class="filter-btn" data-filter="pragmatic">Pragmatic</button></div></div>
+<div class="filter-group" id="interest-filter-container"><span class="filter-label">Signal</span><div class="filter-options"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="8">Recommended</button><button class="filter-btn" data-filter="9">Must-Read</button></div></div>
+</div>
+</header>
+<div class="no-stories-message" id="no-stories-message"><p>No stories match the selected filters in this edition.</p></div>
+<section class="newspaper-columns">
+<article class="story is-lead" data-source="digest" data-interest="9">
+<div class="story-byline">By Hermes<span class="story-source-sep">·</span>Executive Summary</div>
+<h2 class="story-headline">The Day in Review</h2>
+<div class="story-body"><p>This week&#x27;s Substack content is dominated by a single, powerful theme: <strong>the shift from prompting AI to engineering systems around AI.</strong> The Pragmatic Engineer&#x27;s deep-dive inside Anthropic reveals that at the leading AI lab, engineers no longer write prompts — they design loops, fan out work to multiple parallel agents, and spend more time on verification than implementation. The &quot;loop engineering&quot; paradigm, where agents run continuously toward a goal rather than waiting for each instruction, has been formalized into <code>/goal</code> commands across all major coding harnesses (Codex, Claude Code, Hermes). Meanwhile, Latent.Space reports that ontologies — a decades-old concept from the Semantic Web — are making a comeback as deterministic guardrails for probabilistic agents, suggesting the industry is moving past &quot;vibe coding&quot; toward structured agent engineering.</p><p>A second major theme is the <strong>quantification of AI coding capability.</strong> Import AI&#x27;s coverage of the MirrorCode benchmark provides hard data: Claude Opus 4.7 reimplemented a 61K-line program in 14 hours for $251 — a task estimated to take a human 2-17 weeks. At Anthropic, Jarred Sumner&#x27;s Bun-to-Rust rewrite (535K lines, 11 days, $165K in tokens) demonstrates that previously impractical rewrites are now feasible. But the data also shows limits: 8/25 programs were never solved perfectly, and implementation is now only ~15% of the work — the other 85% is verification and testing. This suggests that while AI coding throughput has dramatically increased, the bottleneck has shifted to validation, code review, and trust.</p></div>
+</article><article class="story" data-source="pragmatic" data-interest="9">
+<div class="story-byline">By Gergely Orosz<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> This is the most detailed firsthand account yet of how AI-first engineering teams actually operate day-to-day, and it shows which traditional practices (PRDs, two-pizza teams, planning) survive vs. which change (prototyping, verification, code review).<br><strong>Author:</strong> Gergely Orosz / The Pragmatic Engineer</span></span></div>
+<h2 class="story-headline">How building software is changing at Anthropic</h2>
+<div class="story-body"><p>Inside Anthropic, engineers run 3-10 parallel agents as a default, there are no token budgets, and verification now takes longer than implementation. The Bun-to-Rust rewrite (535K lines, 11 days, $165K) proves that AI-assisted rewrites of large codebases are now practical. Code review and testing are increasingly done by AI, with Claude&#x27;s code review &quot;catching bugs that would take an hour of closely reading the code to figure out.&quot; The team also deleted 80% of the Claude Code system prompt because &quot;the model has gotten smarter&quot; — assumptions must be re-tested with each model generation.</p>
+<blockquote>&quot;We see that few tokens are spent on actual implementation. Most are spent on discovery of unknowns, prototyping, mocking, and then in verification and testing.&quot; — Thariq Shihipar, Anthropic</blockquote></div>
+</article><article class="story" data-source="pragmatic" data-interest="9">
+<div class="story-byline">By Gergely Orosz<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> This post cuts through the hype with ~210 developer responses, showing that loop engineering is useful for specific automation patterns (triggers, cron jobs) but is not the paradigm shift some claim — it may be a transitional pattern as harnesses mature.<br><strong>Author:</strong> Gergely Orosz / The Pragmatic Engineer</span></span></div>
+<h2 class="story-headline">What is &quot;loop engineering&quot;?</h2>
+<div class="story-body"><p>&quot;Loop engineering&quot; — designing automated agent loops instead of writing prompts — has gone from a viral hack (the &quot;Ralph Wiggum&quot; bash loop) to a built-in feature across all major coding harnesses. Codex shipped <code>/Goals</code> in April, followed by Hermes and Claude Code in May. Real-world use cases include auto-opening PRs for Sentry issues, babysitting flaky tests overnight, and triaging outages before humans even join the Slack channel. However, several developers report disappointment: agents drift, &quot;human in the loop&quot; often produces better results, and at API prices, loop engineering gets expensive fast. One distinguished engineer suggests loops may have been a temporary hack while harnesses caught up.</p>
+<blockquote>&quot;I don&#x27;t prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.&quot; — Boris Cherny, creator of Claude Code</blockquote></div>
+</article><article class="story" data-source="latent" data-interest="9">
+<div class="story-byline">By Richard MacManus<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> This signals a shift from &quot;vibe coding&quot; back toward software engineering discipline — using deterministic structures to constrain probabilistic agents, which is essential for production reliability.<br><strong>Author:</strong> Richard MacManus / Latent.Space</span></span></div>
+<h2 class="story-headline">Ontologies Are So Back: Why AI Agents Are Reviving the Semantic Web</h2>
+<div class="story-body"><p>AI engineers are rediscovering ontologies — structured knowledge graphs from the Semantic Web era — as deterministic guardrails for probabilistic LLM agents. UC Berkeley professor Frank Coyle demonstrated &quot;neurosymbolic AI&quot; at the AI Engineer World&#x27;s Fair: combining LLMs with ontology-based validation to keep agents &quot;on their guardrails.&quot; Neo4j CEO Emil Eifrem outlined three types of ontologies for agent systems: business-facing, technical (metadata), and execution traces (runtime signals). The key insight is that existing web ontologies (Schema.org, FOAF, Dublin Core) are already in LLM training data, so developers can prompt for them rather than reinventing from scratch.</p>
+<blockquote>&quot;An OWL axiom is a rule a machine enforces... you can have a reasoner built on ontology, to check [and] keep the LLM on track — have guardrails to keep it honest.&quot; — Frank Coyle, UC Berkeley</blockquote></div>
+</article><article class="story" data-source="importai" data-interest="9">
+<div class="story-byline">By Jack Clark<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> This is the first rigorous, longitudinal benchmark showing both the trajectory and limits of autonomous AI coding on real-world software — essential data for planning AI-assisted engineering investments.<br><strong>Author:</strong> Jack Clark / Import AI</span></span></div>
+<h2 class="story-headline">Import AI 466: MirrorCode benchmark — AIs complete week-long programming tasks</h2>
+<div class="story-body"><p>Epoch and METR released MirrorCode, a benchmark where AI systems reimplement software programs purely from CLI access (no source code, no web). Results: 17/25 programs had at least one perfect-scoring run. Claude Opus 4.7 reimplemented Apple&#x27;s pkl (61K lines) in 14 hours for $251 — a task estimated to take a human 2-17 weeks. Leading models from a year ago would have scored ~30%. However, 8/25 programs were never solved perfectly, with AI struggling most on ruff (Python linter), math packages, and email authentication libraries. The deeper implication: AI systems can self-orient in alien environments through black-box access alone.</p>
+<blockquote>&quot;AI systems can self-orient with regard to their environment; here, their environment is an alien software program and purely through input-output access to it they&#x27;re able to write from the ground up their own implementation of it.&quot; — Jack Clark</blockquote></div>
+</article><article class="story" data-source="out" data-interest="9">
+<div class="story-byline">By Ethan Mollick<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> This is the most practical, up-to-date guide for non-technical and technical users alike on which AI tools to actually deploy — cutting through naming confusion to give clear recommendations.<br><strong>Author:</strong> Ethan Mollick / One Useful Thing</span></span></div>
+<h2 class="story-headline">An opinionated guide to which AI to use to do stuff (Summer 2026 Edition)</h2>
+<div class="story-body"><p>The practical AI landscape has shifted from chatbots to agentic systems where AI &quot;does the equivalent of many hours of real human work in one go.&quot; Mollick identifies only two serious choices for productivity: ChatGPT (Work/Codex modes) and Claude (Cowork/Code modes), both at $20/month. For low-stakes tasks, any free model works. For high-stakes work, use the most powerful models (GPT-5.6 Sol or Claude Fable/Opus) at &quot;High&quot; thinking levels. A key practical insight: giving AI access to your own computer (via Codex or Claude Code) is dramatically more powerful than using cloud-hosted agents, but requires careful permission management to prevent prompt injection attacks.</p>
+<blockquote>&quot;Working with these systems is more like managing than it is chatting. You can almost think of the AI agents as a team that you delegate work to.&quot;</blockquote></div>
+</article><article class="story" data-source="pragmatic" data-interest="9">
+<div class="story-byline">By Gergely Orosz<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> As AI-generated code floods codebases, formal verification may become the necessary counterbalance — the deterministic yin to AI&#x27;s probabilistic yang.<br><strong>Author:</strong> Gergely Orosz / The Pragmatic Engineer</span></span></div>
+<h2 class="story-headline">Formal methods with Hillel Wayne</h2>
+<div class="story-body"><p>A podcast conversation exploring whether AI will finally bring formal verification (TLA+, formal methods) into mainstream software engineering — a practice that has been advocated for decades but rarely adopted outside of critical systems. Hillel Wayne explains how formal methods help build reliable software and whether AI tools can lower the barrier to entry.</p>
+<blockquote><em>(Podcast — full text not accessible in free tier)</em></blockquote></div>
+</article><article class="story" data-source="latent" data-interest="9">
+<div class="story-byline">By swyx &amp; Alessio<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> Direct insight into how OpenAI is building the agentic productivity tools that will compete with Claude Code for developer mindshare.<br><strong>Author:</strong> swyx &amp; Alessio / Latent.Space</span></span></div>
+<h2 class="story-headline">Codex from 0 to 10M Users: Building ChatGPT Work</h2>
+<div class="story-body"><p>A podcast interview with OpenAI&#x27;s core product engineering lead Akshay Nathan on how they built ChatGPT Work from 0 to 10M users — covering the architecture of Sites, OpenClaw, Memory, and the engineering challenges of building agentic infrastructure at scale.</p>
+<blockquote><em>(Podcast — full text not accessible in free tier)</em></blockquote></div>
+</article><article class="story" data-source="pragmatic" data-interest="9">
+<div class="story-byline">By Gergely Orosz<span class="why-info" tabindex="0"><svg class="why-info-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="why-tooltip"><strong>Why read:</strong> Highlights the growing tension between AI coding tool adoption and security/compliance concerns — a critical consideration for enterprise rollouts.<br><strong>Author:</strong> Gergely Orosz / The Pragmatic Engineer</span></span></div>
+<h2 class="story-headline">The Pulse: Grok&#x27;s CLI caught uploading all your local files to the cloud</h2>
+<div class="story-body"><p>A security and productivity news roundup covering Grok&#x27;s CLI tool being caught uploading local files to the cloud without consent, engineering leaders reporting concerns about increasing code review load from AI-generated PRs, and enterprise developers surprised by high AI tooling pricing. <em>(Post is paywalled — summary based on accessible preview.)</em></p>
+<blockquote><em>(Paywalled — not accessible)</em></blockquote></div>
+</article><article class="story" data-source="digest" data-interest="8">
+<div class="story-byline">By Hermes<span class="story-source-sep">·</span>Signals</div>
+<h2 class="story-headline">Trending Themes</h2>
+<div class="story-body"><ul><li><strong>From prompting to loop engineering:</strong> The dominant shift this week — engineers designing automated agent loops rather than writing individual prompts, now formalized as <code>/goal</code> commands in all major harnesses</li><li><strong>Verification &gt; implementation:</strong> Multiple sources confirm that AI coding has shifted the bottleneck from writing code to validating it — at Anthropic, ~85% of effort goes to verification, not implementation</li><li><strong>Deterministic guardrails for probabilistic agents:</strong> Ontologies, formal methods, and structured testing are re-emerging as essential counterweights to LLM unpredictability in production</li><li><strong>AI code review maturing:</strong> Claude&#x27;s automated code review at Anthropic is reportedly catching bugs that would take humans an hour to find — but at significant cost</li><li><strong>Security concerns scaling with adoption:</strong> Grok&#x27;s CLI uploading files, prompt injection risks, and enterprise pricing surprises all signal growing pains as AI coding tools scale</li><li><strong>Assumption turnover:</strong> Each new model generation invalidates prior assumptions — Anthropic deleted 80% of their Claude Code system prompt because the model &quot;got smarter&quot;</li><li><strong>Parallel agent fan-out:</strong> Running 3-10 agents simultaneously is now standard practice at AI labs, with &quot;fanning out work to many Claudes&quot; described as underused</li></ul></div>
+</article><article class="story" data-source="digest" data-interest="9">
+<div class="story-byline">By Hermes<span class="story-source-sep">·</span>For Leaders</div>
+<h2 class="story-headline">CIO Action Item</h2>
+<div class="story-body"><p><strong>Pilot &quot;loop engineering&quot; for your most repetitive engineering workflows this quarter.</strong> Start with two high-value, low-risk automation patterns: (1) an agent loop that auto-triages Sentry/error alerts and opens PRs with fixes, and (2) a nightly loop that babysits flaky test suites, investigates failures, and submits fixes for morning review. Both patterns have been validated at Anthropic and by multiple Pragmatic Engineer readers. Set a token budget ceiling (e.g., $500/month per pilot) to avoid the &quot;tokenmaxxing&quot; cost trap, and require human review of all PRs — the data this week is clear that verification, not implementation, is now the critical bottleneck. Measure time saved vs. cost per PR merged, and report results in 60 days to decide on broader rollout.</p></div>
+</article>
+</section>
+<footer class="edition-colophon">
+<div class="colophon-row">Arun's Daily Diff · Edition of Saturday, August 1, 2026</div>
+<div class="colophon-row">Curated from Substack by the <a href="https://github.com/arun-8687/daily-ai-digest">Daily AI Dev Productivity</a> cron job</div>
+</footer>
+</article>
+</main>
+</body>
+</html>

@@ -30,6 +30,7 @@ function isCrossOrigin(req: IncomingMessage): boolean {
 }
 
 async function dispatch(ctx: AppContext, router: Router, req: IncomingMessage, res: ServerResponse): Promise<void> {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
   const method = req.method ?? 'GET';
   const url = new URL(req.url ?? '/', 'http://localhost');
   const pathname = url.pathname;

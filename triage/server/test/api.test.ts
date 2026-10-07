@@ -547,6 +547,21 @@ describe('SLA', () => {
 });
 
 describe('audit log', () => {
+  it('serves a global feed, newest first, to viewers', async () => {
+    await createIncident({ fingerprint: 'feed-1' });
+    await createIncident({ fingerprint: 'feed-2' });
+    const res = await api(h, 'GET', '/api/audit?limit=10', { as: 'carol' });
+    expect(res.status).toBe(200);
+    const ids = res.body.entries.map((e: { id: number }) => e.id);
+    expect(ids).toEqual([...ids].sort((a, b) => b - a));
+    // Carol's own sign-in is the newest entry; the two incident creations follow it.
+    expect(res.body.entries[0]).toMatchObject({ action: 'auth.login', actor: 'u_carol' });
+    const created = res.body.entries.filter((e: { action: string }) => e.action === 'incident.created');
+    expect(created).toHaveLength(2);
+    const older = await api(h, 'GET', `/api/audit?before=${ids[1]}&limit=10`, { as: 'carol' });
+    expect(older.body.entries.every((e: { id: number }) => e.id < ids[1])).toBe(true);
+  });
+
   it('records actor, action, and before/after state for every lifecycle change', async () => {
     const { id, version } = await createIncident({ fingerprint: 'audit-1' });
     await transition(id, 'ack', version, 'bob');

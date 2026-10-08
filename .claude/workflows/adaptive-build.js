@@ -93,10 +93,17 @@ const LENSES = [
 ]
 const lensesFor = (risk) => (risk === 'high' ? LENSES : risk === 'medium' ? [LENSES[0]] : [])
 
-const stats = { agents: 0, escalations: 0, skippedReviews: 0 }
-const run = (prompt, opts) => {
+const stats = { agents: 0, escalations: 0, skippedReviews: 0, failedAgents: [] }
+const run = async (prompt, opts) => {
   stats.agents++
-  return agent(prompt, opts)
+  let result = await agent(prompt, opts)
+  if (result === null) {
+    // A dead agent (API error, usage limit) must never read as a clean result: retry once, then record it.
+    stats.agents++
+    result = await agent(prompt, { ...opts, label: `${opts.label}:retry` })
+    if (result === null) stats.failedAgents.push(opts.label)
+  }
+  return result
 }
 
 // ---- plan -----------------------------------------------------------------
@@ -127,6 +134,11 @@ async function buildUnit(u) {
     const reviews = (await parallel(lenses.map((l) => () =>
       run(`${COMMON}\nYou are a REVIEWER (lens: ${l.key}) for unit "${u.title}" (${u.id}), which owns: ${u.owns.join(', ')}. Do NOT edit files. ${l.text}\nRun the unit's checks yourself. Report only real defects with concrete failure scenarios; blocking = violates the spec, fails a check, or is a real bug.\nUnit instructions were: ${u.instructions}`,
         { label: `review:${u.id}:${l.key}:r${round}`, phase: 'Build', model: 'sonnet', effort: 'high', schema: REVIEW })))).filter(Boolean)
+    if (reviews.length < lenses.length) {
+      history.push({ round, unverified: `${lenses.length - reviews.length} reviewer(s) failed` })
+      log(`${u.id}: review incomplete in round ${round}; marking unverified`)
+      return { id: u.id, risk: u.risk, history, final: built, unverified: true }
+    }
     const findings = reviews.flatMap((r) => r.findings)
     const blocking = findings.filter((f) => f.severity === 'blocking')
     const failing = !(built?.allPassing)
@@ -184,6 +196,11 @@ for (let round = 1; round <= MAX_SYSTEM_ROUNDS; round++) {
 ${focus}
 Report blocking vs minor findings with concrete failure scenarios, and list thinAreas you could not verify well.`,
     { label: `system-review:r${round}`, phase: 'System review', model: 'sonnet', effort: 'high', schema: REVIEW })
+  if (!review) {
+    systemRounds.push({ round, notRun: true })
+    log(`system review r${round} did not run (agent failed twice); the system is UNVERIFIED`)
+    break
+  }
   const blocking = (review?.findings ?? []).filter((f) => f.severity === 'blocking')
   systemRounds.push({ round, blocking: blocking.length, minor: (review?.findings ?? []).length - blocking.length, thinAreas: review?.thinAreas ?? [] })
   log(`system review r${round}: ${blocking.length} blocking, ${(review?.findings ?? []).length - blocking.length} minor, thin: ${(review?.thinAreas ?? []).join('; ') || 'none'}`)
@@ -202,7 +219,8 @@ Report blocking vs minor findings with concrete failure scenarios, and list thin
 
 return {
   plan: { fitsOneContext: plan.fitsOneContext, rationale: plan.rationale, units: units.map((u) => ({ id: u.id, risk: u.risk, dependsOn: u.dependsOn, riskReason: u.riskReason })) },
-  units: unitResults.map((r) => r && { id: r.id, risk: r.risk, history: r.history, allPassing: r.final?.allPassing, designProblems: r.final?.designProblems }),
+  units: unitResults.map((r) => r && { id: r.id, risk: r.risk, history: r.history, allPassing: r.final?.allPassing, unverified: r.unverified ?? false, designProblems: r.final?.designProblems }),
+  verified: !stats.failedAgents.length && systemRounds.every((r) => !r.notRun) && unitResults.every((r) => r && !r.unverified),
   systemRounds,
   stats,
 }
